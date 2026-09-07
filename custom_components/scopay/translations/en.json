@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "SCOPAY account",
-        "description": "Sign in with your SCOPAY (www.scopay.com) parent login. Leave the pupil account ID blank unless you have more than one child and want this entry to track a specific one.",
+        "description": "Sign in with your SCOPAY parent login. Leave the pupil account ID blank unless you have more than one child and want this entry to track a specific one.",
         "data": {
           "username": "Email address",
           "password": "Password",
