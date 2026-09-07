@@ -1,3 +1,9 @@
+## 0.3.1 (2026-09-07)
+
+### Fix
+
+- stop closing the Home Assistant aiohttp session on unload
+
 ## 0.3.0 (2026-09-07)
 
 ### Feat
