@@ -1,0 +1,6 @@
+{
+  "name": "SCOPAY",
+  "render_readme": true,
+  "country": ["GB"],
+  "homeassistant": "2024.12.0"
+}

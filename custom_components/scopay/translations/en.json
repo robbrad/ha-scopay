@@ -1,0 +1,76 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SCOPAY account",
+        "description": "Sign in with your SCOPAY (www.scopay.com) parent login. Leave the pupil account ID blank unless you have more than one child and want this entry to track a specific one.",
+        "data": {
+          "username": "Email address",
+          "password": "Password",
+          "account_id": "Pupil account ID (optional)",
+          "scan_minutes": "Update interval (minutes)"
+        },
+        "data_description": {
+          "account_id": "Only needed if you have more than one child. Find it in the SCOPAY URL when that pupil is selected.",
+          "scan_minutes": "How often to check SCOPAY. Between 15 and 1440 minutes."
+        }
+      },
+      "reauth_confirm": {
+        "title": "SCOPAY sign-in expired",
+        "description": "Enter the current password for {username}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Email or password incorrect.",
+      "cannot_connect": "Could not reach SCOPAY. Check your connection and try again."
+    },
+    "abort": {
+      "already_configured": "This pupil is already set up.",
+      "reauth_successful": "SCOPAY was reconnected."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "SCOPAY options",
+        "data": {
+          "scan_minutes": "Update interval (minutes)"
+        },
+        "data_description": {
+          "scan_minutes": "How often to check SCOPAY. Between 15 and 1440 minutes."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "catering_balance": {
+        "name": "Cashless catering balance"
+      },
+      "amount_owed": {
+        "name": "Amount owed"
+      },
+      "last_transaction": {
+        "name": "Last transaction"
+      },
+      "alerts": {
+        "name": "Alerts"
+      },
+      "catering_spend_7d": {
+        "name": "Catering spend (7 days)"
+      },
+      "catering_spend_30d": {
+        "name": "Catering spend (30 days)"
+      },
+      "catering_avg_per_school_day": {
+        "name": "Catering avg per school day"
+      },
+      "catering_projected_monthly": {
+        "name": "Catering projected monthly"
+      }
+    }
+  }
+}
