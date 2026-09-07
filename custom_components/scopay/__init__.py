@@ -28,11 +28,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ScopayConfigEntry) -> bo
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ScopayConfigEntry) -> bool:
-    """Unload a config entry and close its SCOPAY session."""
-    unloaded = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
-    if unloaded:
-        await entry.runtime_data.session.close()
-    return unloaded
+    """Unload a config entry.
+
+    The cookie session is deliberately not closed: Home Assistant patches
+    close() on sessions it creates and warns if an integration calls it,
+    because HA already tears them down at shutdown.
+    """
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
 async def _async_update_listener(hass: HomeAssistant, entry: ScopayConfigEntry) -> None:

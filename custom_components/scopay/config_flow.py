@@ -58,17 +58,15 @@ STEP_USER_SCHEMA = vol.Schema(
 
 async def _validate(hass, data: Mapping[str, Any]):
     """Try a login + fetch; return the scraped ScopayData or raise."""
-    session = async_create_clientsession(hass)
+    # A dedicated session keeps this login's cookies out of the shared one.
+    # Home Assistant owns its lifecycle, so it is not closed here.
     api = ScopayApi(
-        session,
+        async_create_clientsession(hass),
         data[CONF_USERNAME],
         data[CONF_PASSWORD],
         data.get(CONF_ACCOUNT_ID) or None,
     )
-    try:
-        return await api.async_get_data()
-    finally:
-        await session.close()
+    return await api.async_get_data()
 
 
 class ScopayConfigFlow(ConfigFlow, domain=DOMAIN):
